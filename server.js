@@ -193,9 +193,10 @@ async function analyzeMint(mint) {
 }
 
 function serveStatic(reqPath, res) {
-  const safePath = reqPath === '/' ? '/index.html' : reqPath;
-  const filePath = path.join(process.cwd(), safePath);
-  if (!filePath.startsWith(process.cwd())) {
+  const normalizedPath = reqPath === '/' ? '/index.html' : reqPath;
+  const relativePath = normalizedPath.replace(/^\/+/, '');
+  const filePath = path.resolve(process.cwd(), relativePath);
+  if (!filePath.startsWith(process.cwd() + path.sep) && filePath !== path.resolve(process.cwd(), 'index.html')) {
     res.writeHead(403);
     return res.end('Forbidden');
   }
