@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solana Meme Coin Holder PNL Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Solana Meme Coin Holder PNL Tracker</h1>
+        <p>
+          Inserisci il <strong>contract address (mint)</strong> della meme coin e ottieni tracking holder/whale con
+          metrica basata su <strong>market cap</strong> (non prezzo spot), usando dati reali on-chain.
+        </p>
+      </header>
+
+      <section class="card form-card">
+        <label for="mintInput">Contract address (mint) Solana</label>
+        <div class="row">
+          <input id="mintInput" type="text" placeholder="Es. So11111111111111111111111111111111111111112" />
+          <button id="analyzeBtn">Analizza</button>
+        </div>
+        <div class="row api-row">
+          <input id="apiBaseInput" type="text" placeholder="API base (opzionale), es. http://127.0.0.1:8000" />
+          <button id="saveApiBtn" type="button">Salva API base</button>
+          <button id="testApiBtn" type="button">Test connessione API</button>
+        </div>
+        <p id="apiStatus" class="hint"></p>
+        <p class="hint">
+          Data source: Solana RPC (holder/token account), Dexscreener (market cap), GeckoTerminal (serie storica mcap).
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card metric">
+          <h2>Media profitto top 5 holder</h2>
+          <p id="top5Avg" class="value">-</p>
+        </article>
+        <article class="card metric">
+          <h2>Media profitto holder (stima campione)</h2>
+          <p id="allHoldersAvg" class="value">-</p>
+        </article>
+        <article class="card metric">
+          <h2>Market cap attuale</h2>
+          <p id="marketCapNow" class="value">-</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Top 5 holder (EOA): dettaglio</h2>
+        <div id="topHoldersTable"></div>
+      </section>
+
+      <section class="card">
+        <h2>Dettaglio PNL per holder (basato su market cap)</h2>
+        <div id="holderDetails"></div>
+      </section>
+
+      <section class="card">
+        <h2>Whale tracking (wallet >= $10.000)</h2>
+        <div id="whaleTable"></div>
+      </section>
+
+      <section class="card">
+        <h2>Grafico market cap + entrate whale</h2>
+        <canvas id="marketCapChart" height="320"></canvas>
+        <p id="chartNote" class="hint"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
