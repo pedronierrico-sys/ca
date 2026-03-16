@@ -1,0 +1,83 @@
+:root {
+  --bg: #0b1020;
+  --card: #141c33;
+  --text: #edf2ff;
+  --sub: #9eb0d9;
+  --pos: #4ade80;
+  --neg: #f87171;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, #0b1020 0%, #0a1328 100%);
+  color: var(--text);
+}
+.container {
+  width: min(1100px, 94vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+.card {
+  background: rgba(20, 28, 51, 0.88);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  border-radius: 14px;
+  padding: 1rem;
+}
+.form-card label { display: block; margin-bottom: .45rem; color: var(--sub); }
+.row { display: flex; gap: .6rem; flex-wrap: wrap; }
+input {
+  flex: 1;
+  min-width: 270px;
+  background: #0a1328;
+  border: 1px solid #294070;
+  color: var(--text);
+  border-radius: 10px;
+  padding: .72rem .8rem;
+}
+button {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .72rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.metric .value { font-size: 1.55rem; font-weight: 700; margin: .35rem 0; }
+.hint { color: var(--sub); font-size: .92rem; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td {
+  padding: .55rem;
+  border-bottom: 1px solid rgba(158,176,217,.22);
+  text-align: left;
+  font-size: .94rem;
+}
+.table th { color: var(--sub); font-weight: 600; }
+.pnl-pos { color: var(--pos); font-weight: 600; }
+.pnl-neg { color: var(--neg); font-weight: 600; }
+
+details {
+  border: 1px solid rgba(158,176,217,.2);
+  border-radius: 10px;
+  margin-bottom: .6rem;
+  padding: .6rem;
+}
+summary { cursor: pointer; font-weight: 600; }
+
+#marketCapChart {
+  width: 100%;
+  min-height: 320px;
+  display: block;
+  border: 1px solid rgba(158,176,217,.2);
+  border-radius: 10px;
+  background: #0a1328;
+}
