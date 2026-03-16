@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solana Meme Coin Holder PNL Tracker</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://s3.tradingview.com/tv.js"></script>
   </head>
   <body>
     <main class="container">
       <header>
         <h1>Solana Meme Coin Holder PNL Tracker</h1>
         <p>
-          Inserisci il <strong>contract address (mint)</strong> della meme coin e ottieni: PNL top holder,
-          media generale holder e tracciamento whale.
+          Inserisci il <strong>contract address (mint)</strong> della meme coin e ottieni tracking holder/whale con
+          metrica basata su <strong>market cap</strong> (non prezzo spot).
         </p>
       </header>
 
@@ -24,7 +23,7 @@
           <button id="analyzeBtn">Analizza</button>
         </div>
         <p class="hint">
-          Nota: senza API key blockchain/analytics configurate, l'app usa dati demo realistici per mostrare il flusso.
+          Logica demo migliorata: distribuzione holder più realistica (esclusi wallet tecnici come LP/burn) e PNL calcolato su market cap.
         </p>
       </section>
 
@@ -37,15 +36,19 @@
           <h2>Media profitto di tutti gli holder</h2>
           <p id="allHoldersAvg" class="value">-</p>
         </article>
+        <article class="card metric">
+          <h2>Market cap attuale</h2>
+          <p id="marketCapNow" class="value">-</p>
+        </article>
       </section>
 
       <section class="card">
-        <h2>Top 5 holder: profitto dettaglio</h2>
+        <h2>Top 5 holder (EOA): dettaglio</h2>
         <div id="topHoldersTable"></div>
       </section>
 
       <section class="card">
-        <h2>Dettaglio PNL per holder (tendina)</h2>
+        <h2>Dettaglio PNL per holder (tendina, basato su market cap)</h2>
         <div id="holderDetails"></div>
       </section>
 
@@ -55,8 +58,8 @@
       </section>
 
       <section class="card">
-        <h2>Grafico (TradingView-style)</h2>
-        <div id="tvChart"></div>
+        <h2>Grafico market cap + entrate whale</h2>
+        <canvas id="marketCapChart" height="320"></canvas>
         <p id="chartNote" class="hint"></p>
       </section>
     </main>

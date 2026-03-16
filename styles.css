@@ -5,7 +5,6 @@
   --sub: #9eb0d9;
   --pos: #4ade80;
   --neg: #f87171;
-  --accent: #60a5fa;
 }
 
 * { box-sizing: border-box; }
@@ -28,11 +27,7 @@ body {
   padding: 1rem;
 }
 .form-card label { display: block; margin-bottom: .45rem; color: var(--sub); }
-.row {
-  display: flex;
-  gap: .6rem;
-  flex-wrap: wrap;
-}
+.row { display: flex; gap: .6rem; flex-wrap: wrap; }
 input {
   flex: 1;
   min-width: 270px;
@@ -54,9 +49,9 @@ button {
 .grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
-.metric .value { font-size: 1.65rem; font-weight: 700; margin: .35rem 0; }
+.metric .value { font-size: 1.55rem; font-weight: 700; margin: .35rem 0; }
 .hint { color: var(--sub); font-size: .92rem; }
 
 .table { width: 100%; border-collapse: collapse; }
@@ -77,4 +72,12 @@ details {
   padding: .6rem;
 }
 summary { cursor: pointer; font-weight: 600; }
-#tvChart { min-height: 460px; }
+
+#marketCapChart {
+  width: 100%;
+  min-height: 320px;
+  display: block;
+  border: 1px solid rgba(158,176,217,.2);
+  border-radius: 10px;
+  background: #0a1328;
+}
